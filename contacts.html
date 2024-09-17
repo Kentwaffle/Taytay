@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Taytay Rizal Government Portal</title>
+  <style>
+    /* General styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .App {
+      text-align: center;
+    }
+
+    /* Header */
+    .App-header {
+      background-color: #00416A;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .logo img {
+      width: 100px;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Menu Styles */
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .navbar ul li {
+      margin-right: 20px;
+      position: relative;
+    }
+
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      display: block;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      display: none;
+      background-color: white;
+      color: black;
+      padding: 10px;
+      border-radius: 5px;
+      width: 200px; /* Adjust width as needed */
+      z-index: 1000;
+    }
+
+    .dropdown li {
+      margin: 0;
+    }
+
+    .dropdown li a {
+      color: black;
+    }
+
+    /* Search bar */
+    .search-bar {
+      padding: 5px;
+      font-size: 16px;
+      margin-left: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    /* Main Content */
+    .main-content {
+      padding: 50px;
+      background-color: #f5f5f5;
+    }
+
+    .main-content h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .section h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .section p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .section ul li {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .section ul li:last-child {
+      border-bottom: none;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+    }
+
+    .footer-links {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      margin-right: 20px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-contact p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="App">
+    <!-- Header -->
+    <header class="App-header">
+      <div class="logo">
+        <img src="https://www.taytayrizal.gov.ph/images/taytay-logo.png" alt="Taytay Rizal Logo">
+      </div>
+      <nav class="navbar">
+        <ul id="navbarLinks">
+          <li><a href="taytay.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="officials.html">Officials</a></li>
+          <li><a href="contacts.html">Contact</a></li>
+        </ul>
+        <input type="text" class="search-bar" placeholder="Search">
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <section class="main-content">
+      <h1>Contact Information</h1>
+
+      <div class="section">
+        <h2>Police Station</h2>
+        <p>For emergencies or police assistance, contact the Taytay Police Station:</p>
+        <ul>
+          <li>Phone: 123-456-7891</li>
+          <li>Email: taytaypolice@local.gov.ph</li>
+          <li>Address: Taytay Police Station, Taytay Rizal</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Emergency Hotlines</h2>
+        <p>Here are some important emergency hotlines:</p>
+        <ul>
+          <li>Ambulance: 123-456-7892</li>
+          <li>Fire Department: 123-456-7893</li>
+          <li>National Disaster Risk Reduction and Management Council (NDRRMC): 123-456-7894</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Bureau of Fire Protection (BFP)</h2>
+        <p>For fire emergencies or assistance from the Bureau of Fire Protection:</p>
+        <ul>
+          <li>Phone: 123-456-7895</li>
+          <li>Email: bfp.taytay@local.gov.ph</li>
+          <li>Address: Taytay Fire Station, Taytay Rizal</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Typhoon Information</h2>
+        <p>Stay informed and prepared during typhoons:</p>
+        <ul>
+          <li>Typhoon Updates: <a href="https://www.pagasa.dost.gov.ph/" target="_blank">PAGASA</a></li>
+          <li>Emergency Shelter: Available at designated evacuation centers. Check local announcements for locations.</li>
+          <li>Emergency Kit Checklist: Ensure you have essential items such as food, water, medications, and important documents.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+      <div class="footer-contact">
+        <p>Contact: taytay@local.gov.ph</p>
+        <p>Phone: 123-456-7890</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const dropdown = toggle.nextElementSibling;
+        const isVisible = dropdown.style.display === 'block';
+        
+        // Hide all dropdowns
+        document.querySelectorAll('.dropdown').forEach(drop => drop.style.display = 'none');
+        
+        // Toggle the clicked dropdown
+        dropdown.style.display = isVisible ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>

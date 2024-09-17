@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Public Safety Alerts - Taytay Rizal Government Portal</title>
+  <style>
+    /* General styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .App {
+      text-align: center;
+    }
+
+    /* Header */
+    .App-header {
+      background-color: #00416A;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .logo img {
+      width: 100px;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Menu Styles */
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .navbar ul li {
+      margin-right: 20px;
+      position: relative;
+    }
+
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      display: block;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      display: none;
+      background-color: white;
+      color: black;
+      padding: 10px;
+      border-radius: 5px;
+      width: 200px; /* Adjust width as needed */
+      z-index: 1000;
+    }
+
+    .dropdown li {
+      margin: 0;
+    }
+
+    .dropdown li a {
+      color: black;
+    }
+
+    /* Search bar */
+    .search-bar {
+      padding: 5px;
+      font-size: 16px;
+      margin-left: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    /* Main Content */
+    .main-content {
+      padding: 50px;
+      background-color: #f5f5f5;
+    }
+
+    .main-content h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .alert {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .alert h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .alert p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .alert-date {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 10px;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+    }
+
+    .footer-links {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      margin-right: 20px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-contact p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="App">
+    <!-- Header -->
+    <header class="App-header">
+      <div class="logo">
+        <img src="https://www.taytayrizal.gov.ph/images/taytay-logo.png" alt="Taytay Rizal Logo">
+      </div>
+      <nav class="navbar">
+        <ul id="navbarLinks">
+          <li><a href="taytay.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="officials.html">Officials</a></li>
+          <li><a href="contacts.html">Contact</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="safety.html">Public Safety Alerts</a></li>
+        </ul>
+        <input type="text" class="search-bar" placeholder="Search">
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <section class="main-content">
+      <h1>Public Safety Alerts</h1>
+
+      <!-- Alerts Section -->
+      <div class="alert">
+        <h2>Typhoon Alert</h2>
+        <p class="alert-date">September 14, 2024</p>
+        <p>A severe typhoon is approaching the area. Residents are advised to stay indoors, secure their properties, and monitor local news for updates. Emergency services are on high alert, and shelters will be open at designated locations.</p>
+      </div>
+
+      <div class="alert">
+        <h2>Flood Warning</h2>
+        <p class="alert-date">September 13, 2024</p>
+        <p>Heavy rains have led to rising water levels in low-lying areas. Please avoid driving through flooded streets and stay in elevated areas. Emergency teams are conducting rescue operations in affected zones.</p>
+      </div>
+
+      <div class="alert">
+        <h2>Public Health Advisory</h2>
+        <p class="alert-date">September 12, 2024</p>
+        <p>There has been an increase in flu cases. Residents are advised to get vaccinated, practice good hygiene, and seek medical attention if experiencing symptoms. The local health center is offering free flu shots for the next two weeks.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+      <div class="footer-contact">
+        <p>Contact: taytay@local.gov.ph</p>
+        <p>Phone: 123-456-7890</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const dropdown = toggle.nextElementSibling;
+        const isVisible = dropdown.style.display === 'block';
+        
+        // Hide all dropdowns
+        document.querySelectorAll('.dropdown').forEach(drop => drop.style.display = 'none');
+        
+        // Toggle the clicked dropdown
+        dropdown.style.display = isVisible ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>
