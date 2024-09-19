@@ -3,19 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/image/taytay_logo.webp">
   <title>Officials - Taytay Rizal Government Portal</title>
   <style>
     /* General styles */
+    html{
+      height: 100%;
+    }
+    
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      min-height: 100vh;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
     }
 
-    .App {
+    /* .App {
       text-align: center;
-    }
+    } */
 
     /* Header */
     .App-header {
@@ -112,8 +121,9 @@
     }
 
     .official-card img {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       width: 100%;
-      max-width: 150px;
+      max-width: 200px;
       border-radius: 50%;
       margin-bottom: 10px;
     }
@@ -128,11 +138,78 @@
       color: #555;
     }
 
+    /* Burger Menu */
+    .burger-menu {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+    }
+
+    .burger-menu div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 5px 0;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .navbar ul {
+        display: none;
+        flex-direction: column;
+        background-color: #00416A;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        padding: 5px;
+        text-align: center;
+      }
+
+      .dropdownParent{
+        text-decoration: none;
+      }
+
+      .navbar ul.active {
+        display: flex;
+      }
+
+      .navbar .dropdown{
+        position: relative;
+        top: 100%;
+      }
+
+      .navbar .dropdown a{
+        color: white;
+        text-decoration: none;
+      }
+
+      .burger-menu {
+        display: flex;
+      }
+
+      .search-bar {
+        display: none;
+      }
+
+      .search-form-mobile {
+        display: block;
+        padding: 10px;
+        background-color: #00416A;
+        color: white;
+        border: none;
+        width: 90%;
+        margin: 10px auto;
+      }
+    }
+
     /* Footer */
     .footer {
       background-color: #333;
       color: white;
       padding: 20px;
+      margin-top: auto;
+ 
     }
 
     .footer-links {
@@ -140,24 +217,34 @@
     }
 
     .footer-links a {
-      margin-right: 20px;
+      margin-right: 10px;
       color: white;
       text-decoration: none;
     }
 
+    .footer-links a:hover{
+      text-decoration: underline;
+    }
+
     .footer-contact p {
+      padding: 5px;
       margin: 0;
     }
   </style>
 </head>
 <body>
-  <div class="App">
+  <!-- <div class="App"> -->
     <!-- Header -->
     <header class="App-header">
       <div class="logo">
         <img src="https://www.taytayrizal.gov.ph/images/taytay-logo.png" alt="Taytay Rizal Logo">
       </div>
       <nav class="navbar">
+        <div class="burger-menu" id="burgerMenu">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
         <ul id="navbarLinks">
           <li><a href="taytay.html">Home</a></li>
           <li><a href="#">Services</a></li>
@@ -174,15 +261,16 @@
       <h1>Our Officials</h1>
       <div class="officials-grid">
         <div class="official-card">
-          <img src="https://via.placeholder.com/150" alt="Official Photo">
+          <img src="/image/Hon. Allan Martine S. De Leon.png" alt="Official Photo">
           <h2>Hon. Allan Martine S. De Leon</h2>
           <p>Mayor of Taytay Rizal. Passionate about community development and public service.</p>
         </div>
         <div class="official-card">
-          <img src="https://via.placeholder.com/150" alt="Official Photo">
+          <img src="/image/Hon. Sophia .png" alt="Official Photo">
           <h2>Hon. Sophia "Pia" Cabral</h2>
           <p>Vice Mayor of Taytay Rizal. Dedicated to improving local infrastructure and services.</p>
         </div>
+        
         <!-- Add more official cards as needed -->
       </div>
     </section>
@@ -198,11 +286,17 @@
         <p>Phone: 123-456-7890</p>
       </div>
     </footer>
-  </div>
+  <!-- </div> -->
 
-  <script>
-    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+  <script>  
+  const burgerMenu = document.getElementById('burgerMenu');
+  const navbarLinks = document.getElementById('navbarLinks');
+  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
 
+  // Burger menu 
+  burgerMenu.addEventListener('click', () => {
+    navbarLinks.classList.toggle('active');
+  });
     dropdownToggles.forEach(toggle => {
       toggle.addEventListener('click', (e) => {
         e.preventDefault();

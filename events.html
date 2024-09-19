@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/image/taytay_logo.webp">
   <title>Events - Taytay Rizal Government Portal</title>
   <style>
     /* General styles */
@@ -142,6 +143,72 @@
     .footer-contact p {
       margin: 0;
     }
+
+    
+    /* Burger Menu */
+    .burger-menu {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+    }
+
+    .burger-menu div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 5px 0;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .navbar ul {
+        display: none;
+        flex-direction: column;
+        background-color: #00416A;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        padding: 5px;
+        text-align: center;
+      }
+
+      .dropdownParent{
+        text-decoration: none;
+      }
+
+      .navbar ul.active {
+        display: flex;
+      }
+
+      .navbar .dropdown{
+        position: relative;
+        top: 100%;
+      }
+
+      .navbar .dropdown a{
+        color: white;
+        text-decoration: none;
+      }
+
+      .burger-menu {
+        display: flex;
+      }
+
+      .search-bar {
+        display: none;
+      }
+
+      .search-form-mobile {
+        display: block;
+        padding: 10px;
+        background-color: #00416A;
+        color: white;
+        border: none;
+        width: 90%;
+        margin: 10px auto;
+      }
+    }
   </style>
 </head>
 <body>
@@ -152,6 +219,11 @@
         <img src="https://www.taytayrizal.gov.ph/images/taytay-logo.png" alt="Taytay Rizal Logo">
       </div>
       <nav class="navbar">
+        <div class="burger-menu" id="burgerMenu">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
         <ul id="navbarLinks">
           <li><a href="taytay.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
@@ -211,21 +283,34 @@
   </div>
 
   <script>
+    const burgerMenu = document.getElementById('burgerMenu');
+    const navbarLinks = document.getElementById('navbarLinks');
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-
+  
+    // Burger menu 
+    burgerMenu.addEventListener('click', () => {
+      navbarLinks.classList.toggle('active');
+    });
+  
+    // Hide all dropdowns 
+    document.querySelectorAll('.dropdown').forEach(drop => drop.style.display = 'none');
+  
     dropdownToggles.forEach(toggle => {
-      toggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        const dropdown = toggle.nextElementSibling;
-        const isVisible = dropdown.style.display === 'block';
-        
-        // Hide all dropdowns
-        document.querySelectorAll('.dropdown').forEach(drop => drop.style.display = 'none');
-        
-        // Toggle the clicked dropdown
-        dropdown.style.display = isVisible ? 'none' : 'block';
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      const dropdown = toggle.closest('li').querySelector('.dropdown');
+      const isVisible = dropdown.style.display === 'block';
+  
+      // Hide all other dropdowns
+      document.querySelectorAll('.dropdown').forEach(drop => drop.style.display = 'none');
+      
+      // Toggle the clicked dropdown
+      dropdown.style.display = isVisible ? 'none' : 'block';
+      
       });
     });
-  </script>
+  
+    </script>
 </body>
 </html>

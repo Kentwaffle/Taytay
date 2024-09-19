@@ -2,9 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" href="/image/taytay_logo.webp">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pay Bills - Taytay Rizal Government Portal</title>
   <style>
+
+    *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    } 
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -42,10 +50,18 @@
       font-size: 16px;
     }
 
+    .page-content-main{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
     .page-content {
       padding: 50px;
       max-width: 1200px;
       margin: 0 auto;
+      text-align: center;
       background-color: white;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -95,6 +111,72 @@
       background-color: #005F99;
     }
 
+        /* Burger Menu */
+        .burger-menu {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+    }
+
+    .burger-menu div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 5px 0;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .navbar ul {
+        display: none;
+        flex-direction: column;
+        background-color: #00416A;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        padding: 5px;
+        text-align: center;
+      }
+
+      .dropdownParent{
+        text-decoration: none;
+      }
+
+      .navbar ul.active {
+        display: flex;
+      }
+
+      .navbar .dropdown{
+        position: relative;
+        top: 100%;
+      }
+
+      .navbar .dropdown a{
+        color: white;
+        text-decoration: none;
+      }
+
+      .burger-menu {
+        display: flex;
+      }
+
+      .search-bar {
+        display: none;
+      }
+
+      .search-form-mobile {
+        display: block;
+        padding: 10px;
+        background-color: #00416A;
+        color: white;
+        border: none;
+        width: 90%;
+        margin: 10px auto;
+      }
+    }
+
+
     footer {
       background-color: #333;
       color: white;
@@ -111,7 +193,12 @@
         <img src="https://www.taytayrizal.gov.ph/images/taytay-logo.png" alt="Taytay Rizal Logo">
       </div>
       <nav class="navbar">
-        <ul>
+        <div class="burger-menu" id="burgerMenu">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <ul id="navbarLinks">
           <li><a href="taytay.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="news.html">News</a></li>
@@ -121,30 +208,32 @@
     </header>
 
     <!-- Page Content -->
-    <div class="page-content">
-      <h1>Pay Bills Online</h1>
-      <p>Welcome to the Taytay Rizal online payment portal. Select a service below to pay your bills:</p>
+     <div class="page-content-main">
+      <div class="page-content">
+        <h1>Pay Bills Online</h1>
+        <p>Welcome to the Taytay Rizal online payment portal. Select a service below to pay your bills:</p>
 
-      <div class="bill-options">
-        <div class="bill-card">
-          <h2>Electricity</h2>
-          <p>Pay your electricity bill securely online.</p>
-          <button onclick="alert('Redirecting to Electricity Payment Page')">Pay Now</button>
-        </div>
-        <div class="bill-card">
-          <h2>Water</h2>
-          <p>Pay your water bill easily from home.</p>
-          <button onclick="alert('Redirecting to Water Payment Page')">Pay Now</button>
-        </div>
-        <div class="bill-card">
-          <h2>Property Taxes</h2>
-          <p>Settle your property taxes online quickly.</p>
-          <button onclick="alert('Redirecting to Property Tax Payment Page')">Pay Now</button>
-        </div>
-        <div class="bill-card">
-          <h2>Internet</h2>
-          <p>Pay your internet service provider without hassle.</p>
-          <button onclick="alert('Redirecting to Internet Payment Page')">Pay Now</button>
+        <div class="bill-options">
+          <div class="bill-card">
+            <h2>Electricity</h2>
+            <p>Pay your electricity bill securely online.</p>
+            <button onclick="alert('Redirecting to Electricity Payment Page')">Pay Now</button>
+          </div>
+          <div class="bill-card">
+            <h2>Water</h2>
+            <p>Pay your water bill easily from home.</p>
+            <button onclick="alert('Redirecting to Water Payment Page')">Pay Now</button>
+          </div>
+          <div class="bill-card">
+            <h2>Property Taxes</h2>
+            <p>Settle your property taxes online quickly.</p>
+            <button onclick="alert('Redirecting to Property Tax Payment Page')">Pay Now</button>
+          </div>
+          <div class="bill-card">
+            <h2>Internet</h2>
+            <p>Pay your internet service provider without hassle.</p>
+            <button onclick="alert('Redirecting to Internet Payment Page')">Pay Now</button>
+          </div>
         </div>
       </div>
     </div>
@@ -154,5 +243,36 @@
       <p>&copy; 2024 Taytay Rizal Government Portal. All rights reserved.</p>
     </footer>
   </div>
+
+  <script>
+    const burgerMenu = document.getElementById('burgerMenu');
+    const navbarLinks = document.getElementById('navbarLinks');
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+  
+    // Burger menu 
+    burgerMenu.addEventListener('click', () => {
+      navbarLinks.classList.toggle('active');
+      console.log("click");
+    });
+  
+    // Hide all dropdowns 
+    document.querySelectorAll('.dropdown').forEach(drop => drop.style.display = 'none');
+  
+    dropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      const dropdown = toggle.closest('li').querySelector('.dropdown');
+      const isVisible = dropdown.style.display === 'block';
+  
+      // Hide all other dropdowns
+      document.querySelectorAll('.dropdown').forEach(drop => drop.style.display = 'none');
+      
+      // Toggle the clicked dropdown
+      dropdown.style.display = isVisible ? 'none' : 'block';
+      
+      });
+    });
+    </script>
 </body>
 </html>
