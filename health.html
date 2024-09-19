@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="icon" href="/image/taytay_logo.webp">
   <title>Public Health - Taytay Rizal Government Portal</title>
   <style>
@@ -18,16 +19,52 @@
       text-align: center;
     }
 
-    /* Header */
-    .App-header {
+     /* Header */
+     .App-header {
       background-color: #00416A;
-      padding: 20px;
+      padding: 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: white;
     }
 
+    .logo img {
+      width: 100px;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+    }
+
+    /*taytay_logo*/
+    .logo_container{
+      display: inline-block;
+    }
+
+    .taytay_logo{
+      width: 100%;
+      max-width:60px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .logo_links{
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .logo_links h2{
+      font-size: clamp(0.8rem, -0.3667rem + 124.4444vw, 1.5rem);
+    }
+
+    .logo_container a h2{
+      color: white;
+    }
+    
     .logo img {
       width: 100px;
     }
@@ -46,15 +83,62 @@
     }
 
     .navbar ul li {
-      margin-right: 20px;
+      /* margin-right: 20px; */
       position: relative;
     }
 
-    .navbar ul li a {
+    /*taytay_logo*/
+    .logo_container{
+      display: inline-block;
+    }
+
+    .taytay_logo{
+      width: 100%;
+      max-width:60px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .logo_links{
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .logo_links h2{
+      font-size: clamp(0.8rem, -0.3667rem + 124.4444vw, 1.5rem);
+    }
+
+    .logo_container a h2{
       color: white;
+    }
+    
+   
+    /* .navbar ul li a {
+      color: white; 
       text-decoration: none;
       font-size: 16px;
       display: block;
+    } */
+
+    .dropdownParent {
+      margin-right: 20px; 
+      font-size: 16px;
+      display: block;
+    }
+
+    .dropdownParent a{
+      color: white;
+      text-decoration: none;
+    }
+
+    .dropdownParent i:hover{
+      text-decoration: underline;
+    }
+  
+    .dropdownParent i{
+      font-size: 14px;
     }
 
     .dropdown {
@@ -62,30 +146,65 @@
       top: 100%;
       left: 0;
       display: none;
-      background-color: white;
-      color: black;
-      padding: 10px;
+      text-align: start;
+      background-color:  #F5F5F5;
       border-radius: 5px;
+      padding: 20px;
       width: 200px; /* Adjust width as needed */
       z-index: 1000;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-
+     
     .dropdown li {
+      position: relative;
       margin: 0;
+      padding: 5px;
     }
 
     .dropdown li a {
       color: black;
+      text-decoration: none;
     }
 
-    /* Search bar */
-    .search-bar {
+    .dropdown li a:hover{
+      text-decoration: underline;
+    }
+
+  /* Search bar */
+  .search-bar {
       padding: 5px;
       font-size: 16px;
-      margin-left: 20px;
       border: 1px solid #ccc;
       border-radius: 5px;
     }
+    
+  .suggestions {
+    background-color:  white;
+    position: absolute;
+    margin-top: 5px;
+    display: flex;
+    max-height: auto; 
+    overflow-y: auto; 
+    border-radius: 5px;
+  }
+        
+  .suggestions ul {
+    flex-direction: column;
+    list-style-type: none;
+    color: black;
+    padding: 0; 
+    margin: 0; 
+    }
+
+  .suggestions li {
+    padding: 8px; 
+    cursor: pointer; 
+  }
+
+  .suggestions li:hover {
+    background-color: #F5F7F8; 
+  }
+
 
     /* Main Content */
     .main-content {
@@ -153,9 +272,14 @@
       color: white;
       text-decoration: none;
     }
+    
+    .footer-links a:hover{
+      text-decoration: underline;
+    }
 
     .footer-contact p {
       margin: 0;
+      padding: 5px;
     }
 
         /* Burger Menu */
@@ -172,8 +296,8 @@
       margin: 5px 0;
     }
 
-    /* Mobile Styles */
-    @media (max-width: 768px) {
+   /* Mobile Styles */
+   @media (max-width: 768px) {
       .navbar ul {
         display: none;
         flex-direction: column;
@@ -188,20 +312,32 @@
 
       .dropdownParent{
         text-decoration: none;
+        margin: 0;
+        padding: 0;
       }
 
       .navbar ul.active {
+      
         display: flex;
+        padding: 0;
+        text-align: center;
       }
 
       .navbar .dropdown{
+        background-color:  #F5F5F5;
         position: relative;
         top: 100%;
+        margin: 0;
+        padding: 0;
+        border-radius: 0%;
       }
 
       .navbar .dropdown a{
-        color: white;
+        color: black;
         text-decoration: none;
+      }
+      .navbar .dropdown li{
+        padding:5px 0px;
       }
 
       .burger-menu {
@@ -229,8 +365,11 @@
   <div class="App">
     <!-- Header -->
     <header class="App-header">
-      <div class="logo">
-        <img src="https://www.taytayrizal.gov.ph/images/taytay-logo.png" alt="Taytay Rizal Logo">
+      <div class="logo_container">
+        <a class="logo_links" href="/taytay.html">
+          <img class="taytay_logo" src="/image/taytay_logo.webp" alt="Taytay Rizal Logo" width="15%"> 
+          <h2>Taytay Rizal Government Portal</h2>
+        </a>
       </div>
       <nav class="navbar">
         <div class="burger-menu" id="burgerMenu">
@@ -239,13 +378,42 @@
           <div></div>
         </div>
         <ul id="navbarLinks">
-          <li><a href="taytay.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="news.html">News</a></li>
-          <li><a href="officials">Officials</a></li>
-          <li><a href="contacts.html">Contact</a></li>
+          <li class="dropdownParent"><a href="taytay.html">Home</a></li>
+          <li class="dropdownParent">
+            <a href="services.html"  id="service_dropdown" >Services <i class='bx bxs-down-arrow dropdown-toggle'></i></a>
+            <ul class="dropdown" >
+              <li>
+                <a href="PAYBILLS.html">Pay Bills</a
+                  ></li>
+              <li>
+                <a href="permits.html">Apply for Permits</a>
+              </li>
+              <li>
+                <a href="health.html">Public Health</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdownParent">
+            <a href="news.html"  id="news_dropdown">News <i class='bx bxs-down-arrow dropdown-toggle' ></i></a>
+            <ul class="dropdown" >
+              <li>
+                <a href="local.html">Local Announcements</a>
+              </li>
+              <li>
+                <a href="events.html">Events</a>
+              </li>
+              <li>
+                <a href="safety.html">Public Safety Alerts</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdownParent"><a href="officials.html">Officials</a></li>
+          <li class="dropdownParent"><a href="contacts.html">Contact</a></li>
         </ul>
-        <input type="text" class="search-bar" placeholder="Search">
+        <form>
+          <input type="text" class="search-bar" placeholder="Search" autocomplete="off" id="search-bar">
+          <div class="suggestions" id="suggestions"></div>
+      </form> 
       </nav>
     </header>
 
@@ -308,6 +476,7 @@
     </footer>
   </div>
 
+  <script src="search.js"></script>
   <script>
     const burgerMenu = document.getElementById('burgerMenu');
     const navbarLinks = document.getElementById('navbarLinks');

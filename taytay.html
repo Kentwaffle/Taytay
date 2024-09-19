@@ -102,8 +102,8 @@
       text-decoration: underline;
     }
   
-    .dropdown-toggle i{
-      font-size: 12px;
+    .dropdownParent i{
+      font-size: 14px;
     }
 
     .dropdown {
@@ -117,6 +117,7 @@
       padding: 20px;
       width: 200px; /* Adjust width as needed */
       z-index: 1000;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
      
     .dropdown li {
@@ -142,6 +143,35 @@
       border: 1px solid #ccc;
       border-radius: 5px;
     }
+    
+  .suggestions {
+    background-color:  white;
+    position: absolute;
+    margin-top: 5px;
+    display: flex;
+    max-height: auto; 
+    overflow-y: auto; 
+    border-radius: 5px;
+  }
+        
+  .suggestions ul {
+    flex-direction: column;
+    list-style-type: none;
+    color: black;
+    padding: 0; 
+    margin: 0; 
+    }
+
+  .suggestions li {
+    padding: 8px; 
+    cursor: pointer; 
+  }
+
+  .suggestions li:hover {
+    background-color: #F5F7F8; 
+  }
+
+
 
     /* Search form for mobile */
     .search-form-mobile {
@@ -184,21 +214,27 @@
       }
 
       .navbar ul.active {
+      
         display: flex;
         padding: 0;
         text-align: center;
       }
 
       .navbar .dropdown{
-        background-color: skyblue;
+        background-color:  #F5F5F5;
         position: relative;
         top: 100%;
         margin: 0;
+        padding: 0;
+        border-radius: 0%;
       }
 
       .navbar .dropdown a{
         color: black;
         text-decoration: none;
+      }
+      .navbar .dropdown li{
+        padding:5px 0px;
       }
 
       .burger-menu {
@@ -385,9 +421,10 @@
           <li class="dropdownParent"><a href="officials.html">Officials</a></li>
           <li class="dropdownParent"><a href="contacts.html">Contact</a></li>
         </ul>
-        <form action="search.html" method="get">
-          <input type="text" name="query" class="search-bar" placeholder="Search">
-        </form>
+        <form>
+          <input type="text" class="search-bar" placeholder="Search" autocomplete="off" id="search-bar">
+          <div class="suggestions" id="suggestions"></div>
+      </form> 
       </nav>
     </header>
 
@@ -450,6 +487,7 @@
     </footer>
   </div>
 
+  <script src="search.js"></script>
   <script>
   const burgerMenu = document.getElementById('burgerMenu');
   const navbarLinks = document.getElementById('navbarLinks');
